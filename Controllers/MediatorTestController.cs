@@ -21,6 +21,6 @@ public class MediatorTestController : ControllerBase
     [HttpGet(Name = "GetPing")]
     public async Task<string> Get()
     {
-        return await _mediator.Send(new Ping());
+        return await _mediator.Send(new PingService());
     }
 }

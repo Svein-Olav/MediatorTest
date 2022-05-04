@@ -1,14 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+# Enkle stikkord for oppsett av EF
+- Løsningen bruker SQLite
+- Database blir lageret på brukers private område.
+- Etter at klasser er satt opp blir følgende kommandoer kjørt for å lage databasen
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+```
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
 
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="10.0.1" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+Følgende pakker er tilgjengelig:
+
+```
+<PackageReference Include="MediatR" Version="10.0.1" />
+   
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,8 +25,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    
-  </ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />   
+```
 
-</Project>
+## Linker
+[Enkelt oppsett av EF](https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli)
